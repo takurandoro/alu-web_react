@@ -1,7 +1,12 @@
-[data-notification-type="default"] {
-  color: blue;
+.Notifications {
+    border: 2px solid pink;
+    padding: 20px;
 }
 
-[data-notification-type="urgent"] {
-  color: red;
+ul li {
+    color: blue;
+}
+
+li[data-priority="urgent"] {
+    color: red;
 }

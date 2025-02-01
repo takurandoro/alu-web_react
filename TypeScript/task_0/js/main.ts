@@ -1,55 +1,47 @@
-interface Student {
-    firstName: string;
-    lastName: string;
-    age: number;
-    location: string
+export interface Student {
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
 }
-
 const student1: Student = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 20,
-    location: 'New York'
-}
-const student2 = {
-    firstName: 'Jane',
-    lastName: 'Doe',
-    age: 21,
-    location: 'New York'
-}
+  firstName: 'First',
+  lastName: 'Student',
+  age: 20,
+  location: 'Nairobi',
+};
+const student2: Student = {
+  firstName: 'Second',
+  lastName: 'Student',
+  age: 100,
+  location: 'Nairobi',
+};
 
-const studentsList: Student[] = [student1, student2];
+const studentsList: Array<Student> = [student1, student2];
 
-// Create a table element
-const table = document.createElement('table');
-
-// Create a header row
-const headerRow = document.createElement('tr');
-const headers = ['First Name', 'Last Name', 'Age', 'Location'];
-headers.forEach(header => {
-    const th = document.createElement('th');
-    th.textContent = header;
-    headerRow.appendChild(th);
-});
-
-// Append the header row to the table
-table.appendChild(headerRow);
-
-// Create a row for each student
-studentsList.forEach(student => {
-    const row: HTMLTableRowElement = document.createElement('tr');
-    const studentValues: string[] = Object.values(student);
-    studentValues.forEach(value => {
-        const td: HTMLTableDataCellElement = document.createElement('td');
-        td.textContent = value.toString();
-        row.appendChild(td);
+function render(students: Array<Student>) {
+  const table = document.createElement('TABLE');
+  const thead = document.createElement('THEAD');
+  const thead_tr = document.createElement('TR');
+  const tbody = document.createElement('TBODY');
+  Object.keys(students[0]).forEach((k) => {
+    const th = document.createElement('TH');
+    th.innerText = k;
+    thead_tr.appendChild(th);
+  });
+  thead.appendChild(thead_tr);
+  table.appendChild(thead);
+  students.forEach((student: Student) => {
+    const tr = document.createElement('TR');
+    Object.values(student).forEach((v) => {
+      const td = document.createElement('TD');
+      td.innerText = v.toString();
+      tr.appendChild(td);
     });
-    table.appendChild(row);
-});
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  document.querySelector('body').appendChild(table);
+}
 
-// Append the table to the body
-document.body.appendChild(table);
-
-
-
-
+render(studentsList);

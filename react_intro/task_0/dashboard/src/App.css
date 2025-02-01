@@ -3,6 +3,7 @@
   height: 100vh;
   flex-direction: column;
 }
+
 .App-header {
   display: flex;
   gap: 40px;
@@ -10,18 +11,23 @@
   border-bottom: 4px solid red;
   margin-bottom: 40px;
 }
+
 .App-header h1 {
   color: red;
   font-size: 60px;
 }
+
 .App-header img {
   height: 300px;
 }
+
 .App-body {
   flex: 1;
   padding-left: 60px;
 }
-.App-body p, .App-footer p {
+
+.App-body p,
+.App-footer p {
   font-size: 32px;
 }
 
@@ -30,6 +36,7 @@
   display: flex;
   justify-content: center;
 }
+
 .App-footer p {
   font-style: italic;
 }

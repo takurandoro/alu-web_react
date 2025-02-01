@@ -1,6 +1,9 @@
 # Webpack
 
-## Learning objectives
+## Description:
+
+Prepare yourself, Webpack is coming!
+
 - How to setup Webpack for a basic project
 - Entry points, output, and loaders
 - How to add plugins
